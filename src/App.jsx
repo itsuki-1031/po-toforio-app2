@@ -49,7 +49,7 @@ export const Home = () => {
   }, [TopPage]);
 
   return (
-    <div>
+    <div className = "min-h-screen bg-gray-50 text-gray-900">
       <h1>youtube</h1>
 
       {/* 2. 入力欄を作る */}
@@ -64,7 +64,8 @@ export const Home = () => {
       {/* <button onClick = {() => TopPage("アニメ")}>データ取得</button> */}
 
       {/* 3. ボタンを押した時に「保存された文字」で検索 */}
-      {/* <button onClick = {() => TopPage(inputsearch)}>検索実行</button> */}
+      {/* <button onClick = {() => TopPage(inputsearch)}>検索実行</button> 
+      buttonはあってもなくてもいい onkeyDownでエンター押せば検索できるため*/}
       {videos.map((video) =>  (
         <div key = {video.id.videoId}>
           <img src = {video.snippet.thumbnails.medium.url}/>
