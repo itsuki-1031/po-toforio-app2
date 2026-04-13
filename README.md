@@ -15,3 +15,20 @@ The React Compiler is currently not compatible with SWC. See [this issue](https:
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # po-toforio-app2
+
+# アプリ名
+YouTube風動画検索アプリ
+
+## 概要
+YouTube Data APIを使用して動画検索・再生ができるアプリです。
+カテゴリ選択や検索機能を実装しています。
+
+## 使用技術
+- JavaScript
+- React
+- Vite
+- Axios
+- Tailwind CSS
+- YouTube Data API
+
+## 機能
