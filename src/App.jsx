@@ -25,6 +25,7 @@ export const Home = () => {
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [isOpen, setIsOpen ] = useState(false);
+  const [favorites, setFavorites ] = useState([]);
 
   const category = ["人気", "アニメ", "ゲーム", "音楽", "映画"]
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ export const Home = () => {
           part : "snippet",
           q : query,
           type : "video",
-          maxResults : 10
+          maxResults : 10,
         }
       });
         console.log(response.data);
@@ -67,6 +68,16 @@ export const Home = () => {
       TopPage(inputsearch)
     }
   };
+
+  const toggleFavorite = (video) => {
+    setFavorites((prev) => {
+      const exists = prev.find(v => v.id.videoId === video.id.videoId);
+      if (exists) {
+        return prev.filter(v => v.id.videoId !== video.id.videoId);
+      }
+      return [...prev, video];
+    })
+  }
 
   // ④ UI（return）の定義  画面の見た目 
   return (
@@ -119,6 +130,9 @@ export const Home = () => {
               onClick = {() => navigate(`/watch/${video.id.videoId}`)}
               className="cursor-pointer hover:opacity-80" />
               <p className="p-2 text-sm">{video.snippet.title}</p>
+              <button onClick = {() => toggleFavorite(video)}className="p-2">
+                {favorites.find(v => v.id.videoId === video.id.videoId) ? "⭐" : "☆"}
+              </button>
             </div>
           ))}
         </div>
